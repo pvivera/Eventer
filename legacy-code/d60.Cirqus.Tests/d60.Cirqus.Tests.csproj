@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7624F47B-B53F-40C6-B211-19288E814F86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>d60.Cirqus.Tests</RootNamespace>
+    <AssemblyName>d60.Cirqus.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>faacd2bf</NuGetPackageImportStamp>
+    <PROCESSOR_ARCHITEW6432 Condition=" '$(PROCESSOR_ARCHITEW6432)' == '' ">x86</PROCESSOR_ARCHITEW6432>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HybridDb, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HybridDb.0.10.0\lib\net40\HybridDb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.10.0.62, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.10.0.62, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.2.1507.118, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1507.0118\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Npgsql, Version=3.1.8.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.3.1.8\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>..\packages\Serilog.1.4.1\lib\net45\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.FullNetFx">
+      <HintPath>..\packages\Serilog.1.4.1\lib\net45\Serilog.FullNetFx.dll</HintPath>
+    </Reference>
+    <Reference Include="Shouldly, Version=2.5.0.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shouldly.2.5.0\lib\net40\Shouldly.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sprache, Version=2.0.0.46, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sprache.2.0.0.46\lib\portable-net4+netcore45+win8+wp8+sl5+MonoAndroid1+MonoTouch1\Sprache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aggregates\TestCreationHookWithRealCommandProcessor.cs" />
+    <Compile Include="Aggregates\TestCreationHookWithTestContext.cs" />
+    <Compile Include="Aggregates\TestDefaultAggregateRootRepository.cs" />
+    <Compile Include="Aggregates\TestEventApplicationOnPrivateAggregateRoot.cs" />
+    <Compile Include="Aggregates\TestFactoryBasedAggregateRootRepository.cs" />
+    <Compile Include="Aggregates\TestIsNewProperty.cs" />
+    <Compile Include="Aggregates\TestLoading.cs" />
+    <Compile Include="Aggregates\TestInheritance.cs" />
+    <Compile Include="Aggregates\TestVersionAttributeApplication.cs" />
+    <Compile Include="Aggregates\TestVersioningWhenLoadingAnotherAggregate.cs" />
+    <Compile Include="Assumptions\TestConcurrentBag.cs" />
+    <Compile Include="Bugs\Issue27_CallingLoadFromWithinRootInvokesCreatedCallback.cs" />
+    <Compile Include="Bugs\ReplicationScenario\IncrementCountingRoot.cs" />
+    <Compile Include="Bugs\ReplicationScenario\CountingRoot.cs" />
+    <Compile Include="Bugs\ReplicationScenario\CountingRootIncremented.cs" />
+    <Compile Include="Bugs\ReplicationScenario\CountingRootView.cs" />
+    <Compile Include="Bugs\VerifyThatCommandMetadataFlowsToOtherRoots.cs" />
+    <Compile Include="Bugs\VerifyThatDuplicateSequenceNumbersAreNotAssigned.cs" />
+    <Compile Include="Bugs\VerifyThatLoadingAnotherRootMultipleTimesWillYieldTheCorrectVersionEveryTime.cs" />
+    <Compile Include="Bugs\VerifyThatMaxDomainEventsPrBatchHasAValidValue.cs" />
+    <Compile Include="Bugs\VerifyThatNewlyCreatedAggregateRootsAreAvailableForLoading.cs" />
+    <Compile Include="Bugs\VerifyThatOtherRootsCanBeLoadedAfterEmittingEvents.cs" />
+    <Compile Include="Bugs\VerifyLoadedAggregateRootVersionIsCorrect.cs" />
+    <Compile Include="Bugs\ReplicationScenario\VerifyThatWeCannotAccidentallyLoadOldRootsInReplicatedSetup.cs" />
+    <Compile Include="Commands\TestCommandMappingApi.cs" />
+    <Compile Include="Commands\TestCommandProcessing.cs" />
+    <Compile Include="Commands\TestCommandTypeNames.cs" />
+    <Compile Include="Config\TestConfigurationApi.cs" />
+    <Compile Include="Config\TestConfigurationContainer.cs" />
+    <Compile Include="Contracts\AggregateRootRepository\Factories\DefaultAggregateRootRepositoryFactory.cs" />
+    <Compile Include="Contracts\AggregateRootRepository\IAggregateRootRepositoryFactory.cs" />
+    <Compile Include="Contracts\AggregateRootRepository\TestAggregateRootRepositories.cs" />
+    <Compile Include="Aggregates\TestEventApplication.cs" />
+    <Compile Include="Commands\TestCustomMetadata.cs" />
+    <Compile Include="Contracts\EventStore\EventStoreTest.cs" />
+    <Compile Include="Contracts\EventStore\Factories\CachedEventStoreFactory.cs" />
+    <Compile Include="Contracts\EventStore\Factories\SQLiteEventStoreFactory .cs" />
+    <Compile Include="Contracts\EventStore\Factories\NtfsEventStoreFactory.cs" />
+    <Compile Include="Contracts\EventStore\Factories\PostgreSqlEventStoreFactory.cs" />
+    <Compile Include="Contracts\EventStore\IEventStoreFactory.cs" />
+    <Compile Include="Contracts\EventStore\Factories\InMemoryEventStoreFactory.cs" />
+    <Compile Include="Contracts\EventStore\Factories\MongoDbEventStoreFactory.cs" />
+    <Compile Include="Contracts\EventStore\Factories\MsSqlEventStoreFactory.cs" />
+    <Compile Include="Contracts\EventStore\InsertPerfOverTime.cs" />
+    <Compile Include="Contracts\Views\DomainEventBatchDispatch.cs" />
+    <Compile Include="Contracts\Views\Factories\HybridDbViewManagerFactory.cs" />
+    <Compile Include="Contracts\Views\Factories\PostgreSqlViewManagerFactory.cs" />
+    <Compile Include="Contracts\Views\Models\GeneralViewManagerTest\GeneratedIds.cs" />
+    <Compile Include="Contracts\Views\Models\GeneralViewManagerTest\GenerateNewId.cs" />
+    <Compile Include="Contracts\Views\Models\GeneralViewManagerTest\IdGenerated.cs" />
+    <Compile Include="Contracts\Views\Models\LoadingStuffDuringViewLocation\InstancePerRootNodeViewLocator.cs" />
+    <Compile Include="Contracts\Views\Models\GeneralViewManagerTest\AnEvent.cs" />
+    <Compile Include="Contracts\Views\Models\GeneralViewManagerTest\EmitEvent.cs" />
+    <Compile Include="Contracts\Views\Models\GeneralViewManagerTest\HeaderCounter.cs" />
+    <Compile Include="Contracts\Views\Models\GeneralViewManagerTest\HeaderCounterViewLocator.cs" />
+    <Compile Include="Contracts\Views\Models\ObjectGraph\Event.cs" />
+    <Compile Include="Contracts\Views\Models\LoadingStuffDuringViewLocation\CountTheNodes.cs" />
+    <Compile Include="Contracts\Views\Factories\AbstractViewManagerFactory.cs" />
+    <Compile Include="Contracts\Views\Factories\EntityFrameworkViewManagerFactory.cs" />
+    <Compile Include="Contracts\Views\Factories\InMemoryViewManagerFactory.cs" />
+    <Compile Include="Contracts\Views\Factories\MongoDbViewManagerFactory.cs" />
+    <Compile Include="Contracts\Views\Factories\MsSqlViewManagerFactory.cs" />
+    <Compile Include="Contracts\Views\Models\GeneralViewManagerTest\EventEmitter.cs" />
+    <Compile Include="Contracts\Views\Models\GeneralViewManagerTest\IdGenerator.cs" />
+    <Compile Include="Contracts\Views\LoadingStuffDuringViewLocation.cs" />
+    <Compile Include="Contracts\Views\GeneralViewManagerTests.cs" />
+    <Compile Include="Contracts\Views\Models\LoadingStuffDuringViewLocation\NodeCreated.cs" />
+    <Compile Include="Contracts\Views\Models\LoadingStuffDuringViewLocation\NodeAttachedToParentNode.cs" />
+    <Compile Include="Contracts\Views\Models\LoadingStuffDuringViewLocation\Node.cs" />
+    <Compile Include="Contracts\Views\Models\PolymorphicDispatch\AnotherEvent.cs" />
+    <Compile Include="Contracts\Views\Models\PolymorphicDispatch\Event.cs" />
+    <Compile Include="Contracts\Views\Models\PolymorphicDispatch\Root.cs" />
+    <Compile Include="Contracts\Views\Models\PolymorphicDispatch\ViewThatSubscribesToEvents.cs" />
+    <Compile Include="Contracts\Views\Models\PolymorphicDispatch\ViewThatSubscribesToAggregateRootEvent.cs" />
+    <Compile Include="Contracts\Views\Models\PolymorphicDispatch\ViewThatSubscribesToAllEvents.cs" />
+    <Compile Include="Contracts\Views\Models\PurgeTest\PurgeTestView.cs" />
+    <Compile Include="Contracts\Views\Models\PurgeTest\Event.cs" />
+    <Compile Include="Contracts\Views\Models\PurgeTest\Root.cs" />
+    <Compile Include="Contracts\Views\Models\RecoveryTest\View.cs" />
+    <Compile Include="Contracts\Views\Models\RecoveryTest\Event.cs" />
+    <Compile Include="Contracts\Views\Models\RecoveryTest\Root.cs" />
+    <Compile Include="Contracts\Views\Models\RestTest\View.cs" />
+    <Compile Include="Contracts\Views\Models\RestTest\Event.cs" />
+    <Compile Include="Contracts\Views\Models\RestTest\Root.cs" />
+    <Compile Include="Contracts\Views\Models\UpdatedEvent\Root.cs" />
+    <Compile Include="Contracts\Views\Models\UpdatedEvent\Event.cs" />
+    <Compile Include="Contracts\Views\Models\UpdatedEvent\View.cs" />
+    <Compile Include="Contracts\Views\Models\ViewInstanceDeletion\MakeStuffHappen.cs" />
+    <Compile Include="Contracts\Views\Models\ViewInstanceDeletion\Root.cs" />
+    <Compile Include="Contracts\Views\Models\ViewInstanceDeletion\SomethingHappened.cs" />
+    <Compile Include="Contracts\Views\Models\ViewInstanceDeletion\Undo.cs" />
+    <Compile Include="Contracts\Views\Models\ViewInstanceDeletion\Undone.cs" />
+    <Compile Include="Contracts\Views\Models\ViewLocators\AnotherEvent.cs" />
+    <Compile Include="Contracts\Views\Models\ViewLocators\JustAnEvent.cs" />
+    <Compile Include="Contracts\Views\Models\ViewLocators\CustomizedViewLocator.cs" />
+    <Compile Include="Contracts\Views\Models\ViewLocators\GlobalInstanceViewInstance.cs" />
+    <Compile Include="Contracts\Views\Models\ViewLocators\InstancePerAggregateRootView.cs" />
+    <Compile Include="Contracts\Views\Models\ViewLocators\MyViewInstance.cs" />
+    <Compile Include="Contracts\Views\Models\ViewLocators\Root.cs" />
+    <Compile Include="Contracts\Views\Models\ViewLocators\ThisIsJustAnEvent.cs" />
+    <Compile Include="Contracts\Views\Models\ViewProfiling\Test.cs" />
+    <Compile Include="Contracts\Views\PolymorphicDispatch.cs" />
+    <Compile Include="Contracts\Views\PurgeTest.cs" />
+    <Compile Include="Contracts\Views\RecoveryTest.cs" />
+    <Compile Include="Contracts\Views\RestTest.cs" />
+    <Compile Include="Contracts\Views\Models\ObjectGraph\Root.cs" />
+    <Compile Include="Contracts\Views\UpdatedEvent.cs" />
+    <Compile Include="Contracts\Views\Models\ObjectGraph\ViewChild.cs" />
+    <Compile Include="Contracts\Views\ViewInstanceDeletion.cs" />
+    <Compile Include="Contracts\Views\ViewLocators.cs" />
+    <Compile Include="Contracts\Views\Models\ObjectGraph\ViewRoot.cs" />
+    <Compile Include="Contracts\Views\ViewProfiling.cs" />
+    <Compile Include="Diagnostics\TestLapTimes.cs" />
+    <Compile Include="Diagnostics\TestProfiler.cs" />
+    <Compile Include="Diagnostics\TestViewManagerProfiler.cs" />
+    <Compile Include="EntityFramework\TestEntityFrameworkViewManager.cs" />
+    <Compile Include="Events\Replicator\ErrorHandling.cs" />
+    <Compile Include="Events\Ntfs\TestCommitLog.cs" />
+    <Compile Include="Events\Replicator\BasicReplication.cs" />
+    <Compile Include="Events\Replicator\TestEventReplicator.cs" />
+    <Compile Include="Events\TestCachingEventStoreDecorator.cs" />
+    <Compile Include="Events\TestInMemoryEventStore.cs" />
+    <Compile Include="Events\Ntfs\TestNtfsEventStore.cs" />
+    <Compile Include="Examples\ReadmeSnippet.cs" />
+    <Compile Include="Extensions\Helpful.cs" />
+    <Compile Include="Extensions\TestTypeExtensions.cs" />
+    <Compile Include="FixtureBase.cs" />
+    <Compile Include="Identity\KeyParserTests.cs" />
+    <Compile Include="Identity\IdTests.cs" />
+    <Compile Include="Identity\KeyFormatTests.cs" />
+    <Compile Include="Integration\IntegrationTestBase.cs" />
+    <Compile Include="Integration\LoadAggregateRootBySuperclass.cs" />
+    <Compile Include="Integration\Scenarios\ProcessingYieldsNoEvents.cs" />
+    <Compile Include="Integration\SimpleScenarioWithDelegation.cs" />
+    <Compile Include="Integration\SimpleScenarioWithConcurrency.cs" />
+    <Compile Include="Integration\SimpleScenarioWithPersistence.cs" />
+    <Compile Include="Integration\SimpleScenario.cs" />
+    <Compile Include="Integration\TypeNameAlias.cs" />
+    <Compile Include="Integration\VariousLoadingMethods.cs" />
+    <Compile Include="Logging\TestCirqusLoggerFactory.cs" />
+    <Compile Include="MongoDb\MongoHelper.cs" />
+    <Compile Include="MongoDb\TestMongoDbEventStore.cs" />
+    <Compile Include="MongoDb\TestMongoDbLoggerFactory.cs" />
+    <Compile Include="MsSql\TestMsSqlEventStorePerformance.cs" />
+    <Compile Include="MsSql\TestNewMsSqlViewManager_AutomaticSchemaRegeneration.cs" />
+    <Compile Include="MsSql\TestNewMsSqlViewManager.cs" />
+    <Compile Include="PostgreSql\PostgreSqlTestHelper.cs" />
+    <Compile Include="Contracts\Serialization\TestCustomSerialization.cs" />
+    <Compile Include="Serialization\TestJsonDomainEventSerializer.cs" />
+    <Compile Include="Snapshotting\Models\Root.cs" />
+    <Compile Include="Snapshotting\TestCachingAggregateRootRepositoryDecorator.cs" />
+    <Compile Include="Snapshotting\TestNewNewSnapshotting.cs" />
+    <Compile Include="SqlTestHelperBase.cs" />
+    <Compile Include="MsSql\MsSqlTestHelper.cs" />
+    <Compile Include="Playground\TestTypeHashCodes.cs" />
+    <Compile Include="Snapshotting\ChallengingSnapshotSpecimens.cs" />
+    <Compile Include="Snapshotting\TestInMemorySnapshotCache.cs" />
+    <Compile Include="Snapshotting\TestSnapshottingWithFairlyLongHistory.cs" />
+    <Compile Include="Snapshotting\TestSturdylizer.cs" />
+    <Compile Include="Stubs\ConsoleOutUnitOfWork.cs" />
+    <Compile Include="Stubs\ConsoleOutEventDispatcher.cs" />
+    <Compile Include="Stubs\ListLoggerFactory.cs" />
+    <Compile Include="Stubs\TestNumberGenerator.cs" />
+    <Compile Include="Stubs\ThrowingViewContext.cs" />
+    <Compile Include="TestCategories.cs" />
+    <Compile Include="TestExtensions.cs" />
+    <Compile Include="MongoDb\TestMongoDbEventStoreIndexPerf.cs" />
+    <Compile Include="Events\TestSerialization.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Testing\TestCirqusTests.cs" />
+    <Compile Include="Testing\TestCirqusTestsOverrideTestContext.cs" />
+    <Compile Include="Testing\TestTestContext.cs" />
+    <Compile Include="Testing\TestEventFormatter.cs" />
+    <Compile Include="Testing\TestWriter.cs" />
+    <Compile Include="Views\Distribution\Model\DidStuff.cs" />
+    <Compile Include="Views\Distribution\Model\MakeSomeRootDoStuff.cs" />
+    <Compile Include="Views\Distribution\Model\SomeRoot.cs" />
+    <Compile Include="Views\Distribution\Model\SomeRootView.cs" />
+    <Compile Include="Views\Distribution\TestAutomaticViewManagerDistribution.cs" />
+    <Compile Include="Views\Distribution\TestMongoDbAutoDistributionPersistence.cs" />
+    <Compile Include="Views\NewViewManager\TestViewManagerEventDispatcherWithOptimization.cs" />
+    <Compile Include="Views\NewViewManager\Views\AllPotatoesView.cs" />
+    <Compile Include="Views\NewViewManager\Events\BaptizedSomeone.cs" />
+    <Compile Include="Views\NewViewManager\Commands\BitePotato.cs" />
+    <Compile Include="Views\NewViewManager\AggregateRoots\John.cs" />
+    <Compile Include="Views\NewViewManager\AggregateRoots\Potato.cs" />
+    <Compile Include="Views\NewViewManager\Events\PotatoCreated.cs" />
+    <Compile Include="Views\NewViewManager\Views\PotatoTimeToBeConsumedView.cs" />
+    <Compile Include="Views\NewViewManager\TestViewManagerEventDispatcher.cs" />
+    <Compile Include="Views\NewViewManager\Events\WasBitten.cs" />
+    <Compile Include="Views\NewViewManager\Events\WasEaten.cs" />
+    <Compile Include="Views\NewViewManager\Views\SlowView.cs" />
+    <Compile Include="Contracts\Views\ObjectGraph.cs" />
+    <Compile Include="Views\TestAggregateRootView\AggregateRootViewWorks.cs" />
+    <Compile Include="Views\TestAggregateRootView\Model\AggregateRootWithLogic.cs" />
+    <Compile Include="Views\TestAggregateRootView\Model\IncrementNumberCommand.cs" />
+    <Compile Include="Views\TestAggregateRootView\Model\NumberEvent.cs" />
+    <Compile Include="Views\TestDefaultEventDispatcherConfiguration.cs" />
+    <Compile Include="Views\TestDependentViews.cs" />
+    <Compile Include="Views\TestLoadAggregatesFromView.cs" />
+    <Compile Include="Views\TestViewLocator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\d60.Cirqus.EntityFramework\d60.Cirqus.EntityFramework.csproj">
+      <Project>{925D8D5E-B695-4DC0-B1B6-66955C964576}</Project>
+      <Name>d60.Cirqus.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\d60.Cirqus.HybridDb\d60.Cirqus.HybridDb.csproj">
+      <Project>{A39585D8-1F4B-4328-99BB-1C1124947CDD}</Project>
+      <Name>d60.Cirqus.HybridDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\d60.Cirqus.Identity\d60.Cirqus.Identity.csproj">
+      <Project>{70478ED2-4591-432A-9F69-C5E8CDA16124}</Project>
+      <Name>d60.Cirqus.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\d60.Cirqus.MongoDb\d60.Cirqus.MongoDb.csproj">
+      <Project>{1ECCDCD5-DD78-4F9C-B0C3-BC083742CE99}</Project>
+      <Name>d60.Cirqus.MongoDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\d60.Cirqus.NUnit\d60.Cirqus.NUnit.csproj">
+      <Project>{0362FDDA-7D8F-482F-9E36-AFD3A0859AF7}</Project>
+      <Name>d60.Cirqus.NUnit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\d60.Cirqus.PostgreSql\d60.Cirqus.PostgreSql.csproj">
+      <Project>{1DCEE03D-8316-443B-92D5-DD89D368837C}</Project>
+      <Name>d60.Cirqus.PostgreSql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\d60.Cirqus.SQLite\d60.Cirqus.SQLite.csproj">
+      <Project>{350726B9-0E33-46B3-99F0-031E0B5B0579}</Project>
+      <Name>d60.Cirqus.SQLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\d60.Cirqus.Testing\d60.Cirqus.Testing.csproj">
+      <Project>{8CF7545B-BAD0-44C8-B611-B013AECAD528}</Project>
+      <Name>d60.Cirqus.Testing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\d60.Cirqus\d60.Cirqus.csproj">
+      <Project>{8E2DF6B4-A4DF-495E-8D74-5DCE6B333FB4}</Project>
+      <Name>d60.Cirqus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\lib\SQLite\x64\sqlite3.dll">
+      <Link>sqlite3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+
+  </Target>
+  -->
+</Project>

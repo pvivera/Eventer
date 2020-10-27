@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E2DF6B4-A4DF-495E-8D74-5DCE6B333FB4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>d60.Cirqus</RootNamespace>
+    <AssemblyName>d60.Cirqus</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\d60.Cirqus.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\d60.Cirqus.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aggregates\AggregateRoot.cs" />
+    <Compile Include="Aggregates\AggregateRootInfo.cs" />
+    <Compile Include="Aggregates\DefaultAggregateRootRepository.cs" />
+    <Compile Include="Aggregates\FactoryBasedAggregateRootRepository.cs" />
+    <Compile Include="Caching\CacheEntry.cs" />
+    <Compile Include="Config\Configurers\DependentViewManagerEventDispatcherSettings.cs" />
+    <Compile Include="Config\Decorators\CommandTypeNameCommandProcessorDecorator.cs" />
+    <Compile Include="Config\Configurers\ConfigurationBuilder.cs" />
+    <Compile Include="Config\Configurers\ViewManagerEventDispatcherConfiguationBuilder.cs" />
+    <Compile Include="Events\DisplayAttribute.cs" />
+    <Compile Include="Events\IDomainEvent.cs" />
+    <Compile Include="Exceptions\AggregateRootNotFoundException.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Logging\Debug\DebugLogger.cs" />
+    <Compile Include="Logging\Debug\DebugLoggerFactory.cs" />
+    <Compile Include="Serialization\CachingDomainEventSerializerDecorator.cs" />
+    <Compile Include="Snapshotting\InMemorySnapshotStore.cs" />
+    <Compile Include="Snapshotting\EnableSnapshotsAttribute.cs" />
+    <Compile Include="Snapshotting\InMemSnapshotConfigEx.cs" />
+    <Compile Include="Snapshotting\New\ISnapshotStore.cs" />
+    <Compile Include="Snapshotting\New\NewSnapshottingAggregateRootRepositoryDecorator.cs" />
+    <Compile Include="Snapshotting\New\Snapshot.cs" />
+    <Compile Include="Snapshotting\New\SnapshottingConfigurationBuilder.cs" />
+    <Compile Include="Snapshotting\New\SnapshottingConfigurationExtensions.cs" />
+    <Compile Include="Testing\TestContextConfigurationBuilder.cs" />
+    <Compile Include="Config\CustomizableDomainTypeNameMapper.cs" />
+    <Compile Include="Config\DefaultDomainTypeNameMapper.cs" />
+    <Compile Include="Aggregates\IAggregateRootRepository.cs" />
+    <Compile Include="Config\IDomainTypeNameMapper.cs" />
+    <Compile Include="Aggregates\ReplayState.cs" />
+    <Compile Include="CommandProcessingResult.cs" />
+    <Compile Include="Commands\CommandMappings.cs" />
+    <Compile Include="Config\Configurers\AggregateRootRepositoryConfigurationBuilder.cs" />
+    <Compile Include="Config\Configurers\CommandProcessorConfigurationBuilder.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\CompositeCommand.cs" />
+    <Compile Include="Commands\ICommandContext.cs" />
+    <Compile Include="CommandProcessor.cs" />
+    <Compile Include="Commands\DefaultCommandContext.cs" />
+    <Compile Include="Config\Configurers\ConfigurationContainer.cs" />
+    <Compile Include="Config\Configurers\ILoggingAndEventStoreConfiguration.cs" />
+    <Compile Include="Config\Configurers\LoggingConfigurationBuilder.cs" />
+    <Compile Include="Config\Configurers\ResolutionContext.cs" />
+    <Compile Include="Config\Configurers\ResolutionException.cs" />
+    <Compile Include="Config\Configurers\IEventStoreConfiguration.cs" />
+    <Compile Include="Config\Configurers\IOptionalConfiguration.cs" />
+    <Compile Include="Config\Configurers\EventDispatcherConfigurationBuilder.cs" />
+    <Compile Include="Config\Configurers\EventStoreConfigurationBuilder.cs" />
+    <Compile Include="Config\Configurers\IRegistrar.cs" />
+    <Compile Include="Config\Configurers\OptionsConfigurationBuilder.cs" />
+    <Compile Include="Diagnostics\DiagnosticsConfigurationExtensions.cs" />
+    <Compile Include="Diagnostics\IProfiler.cs" />
+    <Compile Include="Events\CachingEventStoreDecorator.cs" />
+    <Compile Include="Events\EventData.cs" />
+    <Compile Include="Events\EventReplicator.cs" />
+    <Compile Include="Extensions\EventExtensions.cs" />
+    <Compile Include="ICommandProcessor.cs" />
+    <Compile Include="Config\Options.cs" />
+    <Compile Include="Config\Retryer.cs" />
+    <Compile Include="Exceptions\CommandProcessingException.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Logging\CirqusLoggerFactory.cs" />
+    <Compile Include="Logging\Console\ConsoleLogger.cs" />
+    <Compile Include="Logging\Console\ConsoleLoggerFactory.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\Null\NullLoggerFactory.cs" />
+    <Compile Include="Events\IEmit.cs" />
+    <Compile Include="Exceptions\ConcurrencyException.cs" />
+    <Compile Include="Events\IUnitOfWork.cs" />
+    <Compile Include="Commands\RealUnitOfWork.cs" />
+    <Compile Include="Events\DomainEvent.cs" />
+    <Compile Include="Events\IEventStore.cs" />
+    <Compile Include="Events\EventValidation.cs" />
+    <Compile Include="Exceptions\ConsistencyException.cs" />
+    <Compile Include="Extensions\AttributeExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\DomainEventExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="MsSql\Config\MsSqlConfigurationExtensions.cs" />
+    <Compile Include="MsSql\Events\MsSqlEventStore.cs" />
+    <Compile Include="MsSql\SqlHelper.cs" />
+    <Compile Include="MsSql\Views\ColumnAttribute.cs" />
+    <Compile Include="MsSql\Views\JsonAttribute.cs" />
+    <Compile Include="MsSql\Views\MsSqlViewManager.cs" />
+    <Compile Include="MsSql\Views\NotNullAttribute.cs" />
+    <Compile Include="MsSql\Views\SchemaHelper.cs" />
+    <Compile Include="Ntfs\Config\NtfsConfigurationExtensions.cs" />
+    <Compile Include="Ntfs\Events\CommitLog.cs" />
+    <Compile Include="Ntfs\Events\DataStore.cs" />
+    <Compile Include="Ntfs\Events\GlobalSequenceIndex.cs" />
+    <Compile Include="Ntfs\Events\NtfsEventStore.cs" />
+    <Compile Include="Numbers\Metadata.cs" />
+    <Compile Include="Numbers\Time.cs" />
+    <Compile Include="Numbers\TimeMachine.cs" />
+    <Compile Include="Numbers\MetaAttribute.cs" />
+    <Compile Include="Serialization\BinaryDomainEventSerializer.cs" />
+    <Compile Include="Serialization\IDomainEventSerializer.cs" />
+    <Compile Include="Serialization\MetadataSerializer.cs" />
+    <Compile Include="Commands\DefaultCommandMapper.cs" />
+    <Compile Include="Testing\CommandProcessingResultWithEvents.cs" />
+    <Compile Include="Testing\EventCollection.cs" />
+    <Compile Include="Commands\ICommandMapper.cs" />
+    <Compile Include="Testing\Internals\InMemoryEventStore.cs" />
+    <Compile Include="Testing\Internals\InMemoryUnitOfWork.cs" />
+    <Compile Include="Testing\TestCommandMapper.cs" />
+    <Compile Include="Testing\TestContext.cs" />
+    <Compile Include="Testing\TestContextConfigurationExtensions.cs" />
+    <Compile Include="Testing\TestUnitOfWork.cs" />
+    <Compile Include="Views\AutoDistributionViewManagerEventDispatcher.cs" />
+    <Compile Include="Views\BackoffHelper.cs" />
+    <Compile Include="Views\DependentViewManagerEventDispatcher.cs" />
+    <Compile Include="Views\IAutoDistributionState.cs" />
+    <Compile Include="Views\IAwaitableEventDispatcher.cs" />
+    <Compile Include="Views\InMemoryViewEventDispatcher.cs" />
+    <Compile Include="Views\NullEventDispatcher.cs" />
+    <Compile Include="Views\NullProfiler.cs" />
+    <Compile Include="Views\ViewManagers\AbstractViewManager.cs" />
+    <Compile Include="Views\ViewManagers\DomainEventBatch.cs" />
+    <Compile Include="Views\ViewManagers\AggregateRootToFollow.cs" />
+    <Compile Include="Views\ViewManagers\IAggregateRootView.cs" />
+    <Compile Include="Views\ViewManagers\IViewManager.cs" />
+    <Compile Include="Serialization\JsonDomainEventSerializer.cs" />
+    <Compile Include="Serialization\GenericSerializer.cs" />
+    <Compile Include="Serialization\TypeAliasBinder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Snapshotting\CachingAggregateRootRepositoryDecorator.cs" />
+    <Compile Include="Snapshotting\InMemorySnapshotCache.cs" />
+    <Compile Include="Snapshotting\ISnapshotCache.cs" />
+    <Compile Include="Snapshotting\Sturdylizer.cs" />
+    <Compile Include="Views\CompositeEventDispatcher.cs" />
+    <Compile Include="Views\ViewManagers\IViewManagerProfiler.cs" />
+    <Compile Include="Views\ViewManagers\Locators\HandlerViewLocator.cs" />
+    <Compile Include="Views\ViewManagers\IGetViewIdsFor.cs" />
+    <Compile Include="Views\ViewManagers\DefaultViewContext.cs" />
+    <Compile Include="Views\IViewManager.cs" />
+    <Compile Include="Views\ViewManagers\InMemoryViewManager.cs" />
+    <Compile Include="Views\ViewManagerEventDispatcher.cs" />
+    <Compile Include="Views\ViewManagers\StandardViewManagerProfiler.cs" />
+    <Compile Include="Views\ViewManagers\ViewInstanceUpdatedHandler.cs" />
+    <Compile Include="Views\ViewManagers\ViewManagerWaitHandle.cs" />
+    <Compile Include="Views\ViewManagers\IViewContext.cs" />
+    <Compile Include="Views\ViewManagers\Locators\GlobalInstanceLocator.cs" />
+    <Compile Include="Views\ViewManagers\Locators\InstancePerAggregateRootLocator.cs" />
+    <Compile Include="Views\ViewManagers\ISubscribeTo.cs" />
+    <Compile Include="Views\ViewManagers\IViewInstance.cs" />
+    <Compile Include="Views\ViewManagers\ViewDispatcherHelper.cs" />
+    <Compile Include="Views\ViewManagers\Locators\ViewLocator.cs" />
+    <Compile Include="Views\IEventDispatcher.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

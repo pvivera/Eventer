@@ -1,0 +1,110 @@
+﻿<Project DefaultTargets="build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="Microsoft.Build.Tasks.XmlPoke" AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+
+  <PropertyGroup>
+    <Root>.</Root>
+    <BuildOutputFolder>$(Root)\deploy</BuildOutputFolder>
+    <NuSpecFolder>$(Root)\nuspec</NuSpecFolder>
+    <ToolsFolder>$(Root)\tools</ToolsFolder>
+    <NuGetFolder>$(ToolsFolder)\NuGet</NuGetFolder>
+    <ReleaseMaster>$(ToolsFolder)\ReleaseMaster\ReleaseMaster.exe</ReleaseMaster>
+    <IlMerge>$(ToolsFolder)\IlMerge\ilmerge.exe</IlMerge>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <NuSpecFiles Include="$(NuSpecFolder)\*.nuspec" />
+    <DependantNuSpecFiles Include="$(NuSpecFolder)\*.nuspec" Exclude="$(NuSpecFolder)\d60.Cirqus.nuspec" />
+  </ItemGroup>
+
+  <Target Name="PrintNuSpec">
+    <Message Text="NuSpecFiles: @(NuSpecFiles)"/>
+    <Message Text="DepNuSpecFiles: @(DependantNuSpecFiles)"/>
+  </Target>
+
+  <Target Name="release">
+    <Exec Command="$(ReleaseMaster) &quot;$(Root)&quot; &quot;msbuild&quot; &quot;build.proj /t:release_packages /p:Version={version}&quot;"/>
+  </Target>
+
+  <Target Name="release_packages" DependsOnTargets="validate_version_is_present">
+    <Error Condition="'$(NuggieRepoPath)' == ''" Text="Cannot publish packages because the NuggieRepoPath environment variable has not been set."/>
+    
+    <CallTarget Targets="publish_packages"/>
+  </Target>
+
+  <Target Name="build" DependsOnTargets="clean_output_folder; build_solution" />
+
+  <Target Name="clean_output_folder">
+    <Message Text="Removing old output folder"/>
+    <RemoveDir Directories="$(BuildOutputFolder)" ContinueOnError="true"/>
+  </Target>
+
+  <Target Name="build_solution">
+    <!--<ItemGroup>
+      <DllsToBeMerged Include="$(Root)\d60.Cirqus\bin\Release\d60.Cirqus.dll"/>
+      <DllsToBeMerged Include="$(Root)\d60.Cirqus.TsClient\bin\Release\d60.Cirqus.TsClient.exe"/>
+      <DllsToBeMerged Include="$(Root)\d60.Cirqus.MongoDb\bin\Release\d60.Cirqus.MongoDb.dll"/>
+    </ItemGroup>-->
+    
+    <PropertyGroup>
+      <CoreBuildOutputDirectory>$(Root)\d60.Cirqus\bin\Release</CoreBuildOutputDirectory>
+      <CoreDestinationForMergedFile>$(CoreBuildOutputDirectory)\merged</CoreDestinationForMergedFile>
+      
+      <MongoDbBuildOutputDirectory>$(Root)\d60.Cirqus.MongoDb\bin\Release</MongoDbBuildOutputDirectory>
+      <MongoDbDestinationForMergedFile>$(MongoDbBuildOutputDirectory)\merged</MongoDbDestinationForMergedFile>
+      
+      <TsClientBuildOutputDirectory>$(Root)\d60.Cirqus.TsClient\bin\Release</TsClientBuildOutputDirectory>
+      <TsClientDestinationForMergedFile>$(TsClientBuildOutputDirectory)\merged</TsClientDestinationForMergedFile>
+
+      <IdentityBuildOutputDirectory>$(Root)\d60.Cirqus.Identity\bin\Release</IdentityBuildOutputDirectory>
+      <IdentityDestinationForMergedFile>$(IdentityBuildOutputDirectory)\merged</IdentityDestinationForMergedFile>
+
+      <ReferenceAssemblies>$(ProgramFiles)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5</ReferenceAssemblies>
+    </PropertyGroup>
+    
+    <Message Text="Building everything"/>
+
+    <MSBuild Projects="Cirqus.sln" Targets="rebuild" StopOnFirstFailure="true" Properties="Configuration=Release">
+      <Output TaskParameter="TargetOutputs" ItemName="AssembliesBuilt" />
+    </MSBuild>
+    
+    <MakeDir Directories="$(CoreDestinationForMergedFile)"/>
+    <MakeDir Directories="$(MongoDbDestinationForMergedFile)"/>
+    <MakeDir Directories="$(TsClientDestinationForMergedFile)"/>
+    <MakeDir Directories="$(IdentityDestinationForMergedFile)"/>
+    
+    <Exec Command="$(IlMerge) /out:$(CoreDestinationForMergedFile)\d60.Cirqus.dll $(CoreBuildOutputDirectory)\d60.Cirqus.dll $(CoreBuildOutputDirectory)\Newtonsoft.Json.dll /targetplatform:&quot;v4,$(ReferenceAssemblies)&quot; /internalize" />
+    <Exec Command="$(IlMerge) /out:$(MongoDbDestinationForMergedFile)\d60.Cirqus.MongoDb.dll $(MongoDbBuildOutputDirectory)\d60.Cirqus.MongoDb.dll $(MongoDbBuildOutputDirectory)\Newtonsoft.Json.dll /targetplatform:&quot;v4,$(ReferenceAssemblies)&quot; /internalize" />
+    <Exec Command="$(IlMerge) /out:$(TsClientDestinationForMergedFile)\d60.Cirqus.TsClient.exe $(TsClientBuildOutputDirectory)\d60.Cirqus.TsClient.exe $(TsClientBuildOutputDirectory)\Newtonsoft.Json.dll /targetplatform:&quot;v4,$(ReferenceAssemblies)&quot; /internalize" />
+    <Exec Command="$(IlMerge) /out:$(IdentityDestinationForMergedFile)\d60.Cirqus.Identity.dll $(IdentityBuildOutputDirectory)\d60.Cirqus.Identity.dll $(IdentityBuildOutputDirectory)\Sprache.dll /targetplatform:&quot;v4,$(ReferenceAssemblies)&quot; /internalize" />
+  </Target>
+
+  <Target Name="validate_version_is_present">
+    <Error Condition="'$(Version)' == ''" Text="No version specified! The version parameter must be specified in order to build &amp; release NuGet packages"/>
+  </Target>
+  
+  <Target Name="create_packages" DependsOnTargets="validate_version_is_present; build">
+    <PropertyGroup>
+      <PackagesOutputFolder>$(BuildOutputFolder)\publish</PackagesOutputFolder>
+    </PropertyGroup>
+    <ItemGroup>
+      <NuSpecs Include="$(Root)\**\*.nuspec"/>
+    </ItemGroup>
+    <Message Text="NUSPECS: %(NuSpecs.FullPath)"/>
+    <MakeDir Directories="$(PackagesOutputFolder)"/>
+    <Exec Command="$(NuGetFolder)\nuget.exe pack %(NuSpecs.FullPath) -OutputDirectory $(PackagesOutputFolder) -Version $(Version)"/>
+  </Target>
+
+  <Target Name="publish_packages" DependsOnTargets="validate_nuget_environment_variable; create_packages">
+    <ItemGroup>
+      <GeneratedPackages Include="$(BuildOutputFolder)/publish/*.nupkg"/>
+    </ItemGroup>
+
+    <Message Text="Pushing NuGet packages to d60 Nuggie Repo..." Condition="'$(NuggieRepoPath)' != ''"/>
+    <Copy SourceFiles="@(GeneratedPackages)" DestinationFolder="$(NuggieRepoPath)" Condition="'$(NuggieRepoPath)' != ''"/>
+  </Target>
+
+  <Target Name="validate_nuget_environment_variable">
+    <Error Condition="'$(NuggieRepoPath)' == ''" 
+           Text="In order to publish NuGet packages you need to define an environment variable NuggieRepoPath to point to our NuGet repository in Dropbox"/>
+  </Target>
+</Project>

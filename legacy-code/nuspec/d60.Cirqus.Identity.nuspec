@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>d60.Cirqus.Identity</id>
+    <version>$version$</version>
+    <title>d60.Cirqus.Identity</title>
+    <authors>Mogens Heller Grabe</authors>
+    <owners>mookid8000</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Typed ids for Cirqus</description>
+    <dependencies>
+      <dependency id="d60.Cirqus" version="$version$" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\d60.Cirqus.Identity\bin\Release\merged\d60.Cirqus.Identity.dll" target="lib\NET45" />
+  </files>
+</package>
