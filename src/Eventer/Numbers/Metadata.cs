@@ -4,9 +4,9 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
-using d60.Cirqus.Extensions;
+using Eventer.Extensions;
 
-namespace d60.Cirqus.Numbers
+namespace Eventer.Numbers
 {
     /// <summary>
     /// Metadata collection that stores a bunch of key-value pairs that can be used for
@@ -58,7 +58,7 @@ namespace d60.Cirqus.Numbers
 
         public override string ToString()
         {
-            return string.Join(", ", this.Select(kvp => string.Format(@"""{0}"": ""{1}""", kvp.Key, kvp.Value)));
+            return string.Join(", ", this.Select(kvp => $@"""{kvp.Key}"": ""{kvp.Value}"""));
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace d60.Cirqus.Aggregates
+namespace Eventer.Aggregates
 {
     internal enum ReplayState
     {

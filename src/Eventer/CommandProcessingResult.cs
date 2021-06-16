@@ -1,6 +1,6 @@
 using System;
 
-namespace d60.Cirqus
+namespace Eventer
 {
     /// <summary>
     /// Represents the result of processing a command in the form of the highest global sequence number that
@@ -21,7 +21,7 @@ namespace d60.Cirqus
         /// </summary>
         public static CommandProcessingResult NoEvents()
         {
-            return new CommandProcessingResult(null);
+            return new(null);
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace d60.Cirqus
         /// </summary>
         public static CommandProcessingResult WithNewPosition(long newPosition)
         {
-            return new CommandProcessingResult(newPosition);
+            return new(newPosition);
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace d60.Cirqus
         public override string ToString()
         {
             return EventsWereEmitted 
-                ? string.Format("[NEW POSITION: {0}]", _newPosition) 
+                ? $"[NEW POSITION: {_newPosition}]"
                 : "[NEW POSITION: n/a]";
         }
     }

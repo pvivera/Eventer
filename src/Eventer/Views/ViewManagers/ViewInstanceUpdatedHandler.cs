@@ -1,4 +1,4 @@
-﻿namespace d60.Cirqus.Views.ViewManagers
+﻿namespace Eventer.Views.ViewManagers
 {
     /// <summary>
     /// Delegate type of an event handler that will be called when a view instance has been updated beucase one or more events were dispatched to it

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using d60.Cirqus.Events;
+using Eventer.Events;
 
-namespace d60.Cirqus.Views.ViewManagers
+namespace Eventer.Views.ViewManagers
 {
     /// <summary>
     /// Defines a context of stuff that a view can take advantage of

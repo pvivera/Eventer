@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using d60.Cirqus.Views;
-using d60.Cirqus.Views.ViewManagers;
+using Eventer.Views;
+using Eventer.Views.ViewManagers;
 
-namespace d60.Cirqus.Extensions
+namespace Eventer.Extensions
 {
     /// <summary>
     /// Nifty extensions for <see cref="Type"/>

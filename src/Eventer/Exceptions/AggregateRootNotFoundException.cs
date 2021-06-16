@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Runtime.Serialization;
-using d60.Cirqus.Extensions;
+using Eventer.Extensions;
 
-namespace d60.Cirqus.Exceptions
+namespace Eventer.Exceptions
 {
     [Serializable]
     public class AggregateRootNotFoundException : ApplicationException
@@ -13,7 +13,7 @@ namespace d60.Cirqus.Exceptions
         }
 
         public AggregateRootNotFoundException(Type aggregateRootType, string id)
-            : base(string.Format("Could not find aggregate root of type {0} with ID {1}", aggregateRootType.GetPrettyName(), id))
+            : base($"Could not find aggregate root of type {aggregateRootType.GetPrettyName()} with ID {id}")
         {
         }
     }

@@ -1,6 +1,6 @@
-﻿using d60.Cirqus.Numbers;
+﻿using Eventer.Numbers;
 
-namespace d60.Cirqus.Events
+namespace Eventer.Events
 {
     /// <summary>
     /// Interface that all domain events implements

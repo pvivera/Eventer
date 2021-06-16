@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using d60.Cirqus.Events;
+using Eventer.Events;
 
-namespace d60.Cirqus.Extensions
+namespace Eventer.Extensions
 {
     public static class DomainEventExtensions
     {
@@ -67,9 +67,8 @@ namespace d60.Cirqus.Extensions
             
             if (!throwIfNotFound) return converter(null);
 
-            var metadataString = string.Join(", ", metadata.Select(kvp => string.Format("{0}: {1}", kvp.Key, kvp.Value)));
-            var message = string.Format("Attempted to get value of key '{0}' from event {1}, but only the following" +
-                                        " metadata were available: {2}", key, domainEvent, metadataString);
+            var metadataString = string.Join(", ", metadata.Select(kvp => $"{kvp.Key}: {kvp.Value}"));
+            var message = $"Attempted to get value of key '{key}' from event {domainEvent}, but only the following metadata were available: {metadataString}";
 
             throw new InvalidOperationException(message);
         }

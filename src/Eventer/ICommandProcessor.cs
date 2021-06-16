@@ -1,7 +1,7 @@
 using System;
-using d60.Cirqus.Commands;
+using Eventer.Commands;
 
-namespace d60.Cirqus
+namespace Eventer
 {
     /// <summary>
     /// Command processor API - basically just processes commands :)

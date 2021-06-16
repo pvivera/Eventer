@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Reflection;
-using d60.Cirqus.Events;
-using d60.Cirqus.Exceptions;
-using d60.Cirqus.Extensions;
-using d60.Cirqus.Numbers;
+using Eventer.Events;
+using Eventer.Exceptions;
+using Eventer.Extensions;
+using Eventer.Numbers;
 
-namespace d60.Cirqus.Aggregates
+namespace Eventer.Aggregates
 {
     /// <summary>
     /// This is the base class of aggregate roots. Derive from this in order to create an event-driven domain model root object that

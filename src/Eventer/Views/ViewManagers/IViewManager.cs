@@ -1,4 +1,4 @@
-﻿namespace d60.Cirqus.Views.ViewManagers
+﻿namespace Eventer.Views.ViewManagers
 {
     /// <summary>
     /// Typed API for a view manager that allows for addressing type-specific view managers from the outside of the dispatcher

@@ -1,4 +1,4 @@
-﻿namespace d60.Cirqus.Events
+﻿namespace Eventer.Events
 {
     /// <summary>
     /// Marks an aggregate root as an emitter (and thus also as a consumer) of this particular type of domain event

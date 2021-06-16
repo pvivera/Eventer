@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using d60.Cirqus.Aggregates;
+using Eventer.Aggregates;
 
-namespace d60.Cirqus.Events
+namespace Eventer.Events
 {
     /// <summary>
     /// A thing that is capable of collecting emitted events

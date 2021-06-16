@@ -1,9 +1,9 @@
 ﻿using System;
-using d60.Cirqus.Aggregates;
-using d60.Cirqus.Numbers;
+using Eventer.Aggregates;
+using Eventer.Numbers;
 // ReSharper disable UnusedTypeParameter
 
-namespace d60.Cirqus.Events
+namespace Eventer.Events
 {
     /// <summary>
     /// Base class of all domain events

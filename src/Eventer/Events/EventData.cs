@@ -1,6 +1,6 @@
-﻿using d60.Cirqus.Numbers;
+﻿using Eventer.Numbers;
 
-namespace d60.Cirqus.Events
+namespace Eventer.Events
 {
     /// <summary>
     /// Contains event data for one domain event, possibly with the original <see cref="DomainEvent"/> instance included (if the event was just emitted)

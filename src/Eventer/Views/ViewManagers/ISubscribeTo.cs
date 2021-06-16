@@ -1,6 +1,6 @@
-﻿using d60.Cirqus.Events;
+﻿using Eventer.Events;
 
-namespace d60.Cirqus.Views.ViewManagers
+namespace Eventer.Views.ViewManagers
 {
     /// <summary>
     /// Base interface of something that subscribes to a domain event. This one is not meant to be implemented (because it doesn't really do anything)

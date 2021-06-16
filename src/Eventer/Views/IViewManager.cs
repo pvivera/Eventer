@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using d60.Cirqus.Events;
-using d60.Cirqus.Views.ViewManagers;
+using Eventer.Events;
+using Eventer.Views.ViewManagers;
 
-namespace d60.Cirqus.Views
+namespace Eventer.Views
 {
     /// <summary>
     /// Defines a projection that can have events dispatched to it while keeping track of how far it has processed

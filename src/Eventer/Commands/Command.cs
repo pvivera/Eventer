@@ -1,8 +1,8 @@
 ﻿using System;
-using d60.Cirqus.Aggregates;
-using d60.Cirqus.Numbers;
+using Eventer.Aggregates;
+using Eventer.Numbers;
 
-namespace d60.Cirqus.Commands
+namespace Eventer.Commands
 {
     /// <summary>
     /// Ultimate command base class. When you use this class to create your commands, you need to provide

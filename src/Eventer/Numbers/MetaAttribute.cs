@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace d60.Cirqus.Numbers
+namespace Eventer.Numbers
 {
     /// <summary>
     /// Attribute that can be applied to events and aggregate roots. The key and value of the attribute

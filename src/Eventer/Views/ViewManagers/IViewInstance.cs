@@ -1,8 +1,8 @@
-﻿using d60.Cirqus.Events;
-using d60.Cirqus.Views.ViewManagers.Locators;
+﻿using Eventer.Events;
+using Eventer.Views.ViewManagers.Locators;
 // ReSharper disable UnusedTypeParameter
 
-namespace d60.Cirqus.Views.ViewManagers
+namespace Eventer.Views.ViewManagers
 {
     /// <summary>
     /// Base interface of views - marks a class as a representation of one instance of a view model that can

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace d60.Cirqus.Extensions
+namespace Eventer.Extensions
 {
     public static class AttributeExtensions
     {

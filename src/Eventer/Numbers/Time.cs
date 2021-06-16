@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace d60.Cirqus.Numbers
+namespace Eventer.Numbers
 {
     /// <summary>
     /// Gets the current time as it should be: in UTC :)

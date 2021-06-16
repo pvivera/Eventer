@@ -1,7 +1,7 @@
-﻿using d60.Cirqus.Aggregates;
-using d60.Cirqus.Events;
+﻿using Eventer.Aggregates;
+using Eventer.Events;
 
-namespace d60.Cirqus.Commands
+namespace Eventer.Commands
 {
     /// <summary>
     /// Provides a context for the execution of a command
